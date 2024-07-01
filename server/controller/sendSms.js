@@ -1,7 +1,7 @@
 var admin = require("firebase-admin");
 var serviceAccount = require("./serviceAccountKey.json");
-const accountSid = 'ACa977929e96cf75d1509f604afedfa2b1';
-const authToken = '638cee8ae381080fb7a62b8fc6c5ca10';
+const accountSid = '';
+const authToken = '';
 
 
 admin.initializeApp({
@@ -28,8 +28,8 @@ module.exports.sendmessage = async function (req,res) {
 client.messages
   .create({
      body: ''+req.body.message,
-     from: '+17866928990',
-     to: '+923086199922'
+     from: '',
+     to: ''
    })
   .then(message => console.log(message.sid));
 }
