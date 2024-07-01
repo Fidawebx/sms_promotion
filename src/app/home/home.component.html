@@ -1,0 +1,91 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem class="ml-5 pt-2">
+      <a ngbNavLink><b>Home</b></a>
+      <ng-template ngbNavContent>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4"></div>
+              <div class="yoverFlow">
+            </div>
+            <div class="sm-12 col-lg-6 border">
+              <form class="mt-5" [formGroup]="sendMessage">
+              <h3 class="text-center mt-5 p-3">Send Message</h3>
+                <div class="form-group">
+                  <label for="inputState"><b>Select Region</b></label>
+                  <select id="inputState" class="form-control" formControlName="region">
+                    <option selected value="1">Multan</option>
+                    <option value="2">Dera Ghazi Khan</option>
+                    <option value="3">Bhawalpure</option>
+                    <option value="4">Dera Ismail Khan</option>
+                    <option value="5">Islamabad</option>
+                    <option value="6">Lahore</option>
+                    <option value="7">Raheem Yar Khan</option>
+                  </select>
+                  <!-- <span class="text-danger"
+                    *ngIf="(registerFormControl.region.touched || submitted) && registerFormControl.region.errors?.required">
+                      Must Select One Region
+                  </span> -->
+                </div>
+                <div class="form-row">
+                  <label for="inputState"><b>Type Your Message</b></label><br>
+                  <textarea name="" id="" cols="80" rows="5" placeholder="Type your message here..." formControlName="message"></textarea>
+
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 p-3">
+                    <button class="btn btn-success" mwlConfirmationPopover popoverTitle="Sending Message" popoverMessage="Are you sure you want to add record?" placement="top" (confirm)="onSubmit()" (cancel)="cancelClicked=true">Send Message</button>
+                    <button class="btn btn-danger ml-3" (click)="clear()">Clear</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      </ng-template>
+    </li>
+    <li ngbNavItem class="pt-2 ml-2">
+      <a ngbNavLink>Add Record</a>
+      <ng-template ngbNavContent>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="sm-12 col-lg-6 border">
+              <form class="mt-5" [formGroup]="addRecord">
+              <h3 class="text-center mt-5 p-3">Add New Record</h3>
+                <div class="form-group">
+                  <label for="inputState"><b>Select Region</b></label>
+                  <select id="inputState" class="form-control" formControlName="region">
+                    <option selected value="1">Multan</option>
+                    <option value="2">Dera Ghazi Khan</option>
+                    <option value="3">Bhawalpure</option>
+                    <option value="4">Dera Ismail Khan</option>
+                    <option value="5">Islamabad</option>
+                    <option value="6">Lahore</option>
+                    <option value="7">Raheem Yar Khan</option>
+                  </select>
+                </div>
+                  <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="number" class="form-control" formControlName="pnumber">
+                    <!-- <span class="text-danger"
+                        *ngIf="(registerFormControl.pnumber.touched || submitted) && registerFormControl.pnumber.errors?.required">
+                        Phone Number is must required
+                    </span> -->
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 p-3">
+                    <button class="btn btn-success" mwlConfirmationPopover popoverTitle="Adding Record" popoverMessage="Are you sure you want to send message?" placement="top" (confirm)="addRecords()" (cancel)="cancelClicked=true">Add Record</button>
+                    <button class="btn btn-danger ml-3" (click)="clear()">Clear</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      </ng-template>
+    </li>
+    <li class="btnPostion">
+      <button class="btn btn-primary mt-2 float-right" (click)="signout()">Sign Out</button>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
